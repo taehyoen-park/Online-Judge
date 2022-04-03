@@ -1,5 +1,6 @@
 #include<stdio.h>
 
+//3ÀÇ ¹è¼ö 
 int main()
 {
 	
