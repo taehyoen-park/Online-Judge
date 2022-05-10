@@ -1,4 +1,6 @@
 n = int(input())
-arr = list(map(int,input().split())) 
-
-print(min(arr))
+a = input().split()
+for i in range(n):
+    a[i] = int(a[i])
+a.sort()
+print(a[0])

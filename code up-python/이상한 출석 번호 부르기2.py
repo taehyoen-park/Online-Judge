@@ -1,8 +1,5 @@
 n = int(input())
-arr = list(map(int,input().split()))
-
-arr.reverse()
-
+a = input().split()
+a.reverse()
 for i in range(n):
-    print(arr[i],end=' ')
-
+    print(a[i],end=" ")

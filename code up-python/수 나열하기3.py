@@ -1,13 +1,7 @@
-x = list(map(int,input().split()))
+a,m,d,n = map(int,input().split())
 
-if x[3] != 1: 
-    for i in range(x[3] - 1):
-        x[0] = (x[0] * x[1]) + x[2]
-    print(x[0])
-        
-else:
-    print(x[0])
-    
-
-
-    
+result = a
+while n != 1:
+    result = result*m+d
+    n -= 1
+print(result)
