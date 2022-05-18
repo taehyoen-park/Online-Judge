@@ -1,49 +1,62 @@
 #include<iostream>
-#include<algorithm>
 #include<vector>
-
-using std::vector;
-using std::sort;
-using std::max;
-using std::pair;
-
-typedef pair<int,int> index;
+#include<algorithm> 
+using namespace std;
+int n,c;
 vector<int> home;
-int distance(int x);
-{
-	
-}
+
 int binary_search(int start,int end,int c)
 {
-	int middle;
+	int middle,start_v,count,result;
 	while(start <= end)
 	{
 		middle = (start+end)/2;
-		if()
-		else
+		start_v = home[0],count = 1;	
+		for(int i = 0; i < n; i++)
+		{
+			if(home[i] - start_v >= middle)
+			{
+				count++;
+				start_v = home[i];
+			}
+			else continue;
+		}
+		
+		if(count > c){
+			start = middle + 1;
+			result = middle;
+		}
+
+		else if(count < c)
+			end = middle - 1;
+		else {
+			start = middle + 1;
+			result = middle;
+		}
 	}
-} 
+	return result;
+}
+
 int main()
 {
-	int n,c;
 	scanf("%d %d",&n,&c);
-	
 	for(int i = 0; i < n; i++)
 	{
 		int k;
-		scanf("%d",&k);
-		home.push_back(k);
+		scanf("%d",&k);		
+		home.push_back(k);		
 	}
 	sort(home.begin(),home.end());
 	
-	int Max = -1;
-	for(int i = 0; i < home.size()-1; i++)
+	if(n == 2)
 	{
-		int d = home[i+1]-home[i];
-		Max = max(Max,d);
+		printf("%d",home[1] - home[0]);
+		return 0;
 	}
 	
-	int result = binary_search(1,Max,c);
+	int result = binary_search(1,home[n-1]-home[0],c);
 	printf("%d",result);
+	
+
 	return 0;
 }
