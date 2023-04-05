@@ -66,6 +66,7 @@ int BFS()
 	}
 	return day;
 }
+
 int main()
 {
 	int i,j,result;

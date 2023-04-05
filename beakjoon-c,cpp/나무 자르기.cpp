@@ -10,18 +10,14 @@ vector<ull> tree;
 ull binary_search(ull start,ull end,ull x)
 {
 	ull middle,result = 0;
-	while(start <= end)
+	while(start + 1 < end)
 	{
 		middle = (start+end)/2;
 		result = treecut(middle);
-		if(result > x) start = middle+1;
-		else if(result < x) end = middle-1;
-		else return middle;
+		if(result >= x) start = middle;
+		else end = middle;
 	}
-	ull tem = treecut(middle);
-	if(tem < x)
-		return middle-1;
-	else return middle;
+	return start;
 }
 ull treecut(ull x)
 {
@@ -39,27 +35,15 @@ int main()
 	ull n,m;
 	scanf("%lld %lld",&n,&m);
 	
-	ull Max = -1;
 	for(ull i = 0; i < n; i++)
 	{
 		ull k;
 		scanf("%lld",&k);
 		tree.push_back(k);
-		Max = max(Max,k);
 	}
-	if(m == 1)
-	{
-		printf("%lld",Max-1);
-		return 0;
-	}
-	if(n == 1)
-	{
-		printf("%lld",tree[0]- m);
-		return 0;
-	}
-	
+
 	ull result;
-	result = binary_search(1,Max,m);
+	result = binary_search(0,1e9,m);
 	printf("%lld",result);
 	
 	return 0;
