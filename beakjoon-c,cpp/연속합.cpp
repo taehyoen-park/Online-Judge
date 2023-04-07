@@ -20,7 +20,9 @@ void solve(int x,int y)
 {
 	if(x > y) return;
 	if(x >= n || y >= n) return;
-	dp[y-x+1] = Sum(x,y);
+	int a = Sum(x,y);
+	if(dp[y-x+1] < a) dp[y-x+1] = 
+	
 	solve(x+1,y);
 	solve(x,y+1);
 }

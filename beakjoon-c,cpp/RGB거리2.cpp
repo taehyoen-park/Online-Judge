@@ -22,7 +22,7 @@ int compare_v(int a,int b)
 int main()
 {
 	cin.tie(NULL);
-	cout.tie(NULL);
+	cout.tie(0);
 	cin >> n;
 	
 	rgb[0].push_back(0);
@@ -70,10 +70,11 @@ int main()
 		if(result[i] != -1)
 		{
 			if(Min > rgb[result[i]][n-1])
-				Min = rgb[result[i]][n-1];
+			Min = rgb[result[i]][n-1];
 		}
 	}
-
-	cout << Min;
+	printf("%d %d %d\n",rgb[0][n-1],rgb[1][n-1],rgb[2][n-1]);
+	printf("%d %d %d",result[0],result[1],result[2]);
+	//cout << Min;
 	return 0;	
 } 
